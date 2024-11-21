@@ -3,19 +3,11 @@
 @tailwind utilities;
 
 body {
-  margin: 0;
-  padding: 20px;
+  margin: 0px;
+  padding: 0px;
 }
 
 #root {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 0;
-}
-
-code {
-  background-color: #eee;
-  border-radius: 3px;
-  font-family: courier, monospace;
-  padding: 0 3px;
+  width: calc(100vw);
+  height: calc(100vh);
 }
