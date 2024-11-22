@@ -9,6 +9,8 @@
     /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
+    "experimentalDecorators": true, // 启用装饰器语法
+    "emitDecoratorMetadata": true, // 启用反射元数据的发射，这通常用于运行时装饰器的反射
     "isolatedModules": true,
     "esModuleInterop": true,
     "moduleDetection": "force",
