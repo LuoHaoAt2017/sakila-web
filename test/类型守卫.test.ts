@@ -1,6 +1,3 @@
-
-
-
 describe("类型守卫", function () {
   test("使用自定义谓词函数类型守卫", function () {
     interface Circle {
