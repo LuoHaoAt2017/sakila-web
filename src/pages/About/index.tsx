@@ -1,21 +1,21 @@
-import { log } from '@/decorator/log';
+import { useEffect } from "react";
 
-@log
-class MyClass {
-  private name: string;
-  constructor(name: string) {
-    console.log('Example instance created.');
-    this.name = name;
-  }
-
-  greet() {
-    return `Hello ${this.name}`;
-  }
-}
+// 用户名和密码    
+const username = 'user';
+const password = 'password';
 
 function About() {
-  const myObj = new MyClass("John");
-  myObj.greet();
+
+  useEffect(() => {
+    // 将用户名和密码进行 Base64 编码    
+    const credentials = window.btoa(`${username}:${password}`);
+    window.fetch('/api/hello', {
+      headers: {
+        'Authorization': `Basic ${credentials}`, // Basic Auth
+        'Content-Type': 'application/json' // 根据需要设置其他请求头  
+      }
+    }).then(resp => resp.json()).then(console.log);
+  }, []);
   return <div></div>
 }
 

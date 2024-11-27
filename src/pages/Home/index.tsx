@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { Graph, Node, Edge } from '@antv/x6';
+import { Graph } from '@antv/x6';
 
 Graph.registerNode('custom-node', {
   markup: [{
