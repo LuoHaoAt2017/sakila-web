@@ -5,6 +5,7 @@ import About from "@/pages/About";
 const basename = import.meta.env.VITE_BASE_PATH;
 
 export default function App() {
+
   // 动态路由的雏形
   const children = [
     {
