@@ -8,7 +8,7 @@ const App = React.lazy(() => {
   return new Promise<{ default: React.ComponentType }>((resolve) => {
     setTimeout(() => {
       resolve(import('./App.tsx'));
-    }, 3000);
+    }, 1000);
   });
 });
 

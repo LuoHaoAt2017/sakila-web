@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "@/pages/Home";
 import About from "@/pages/About";
+import Behavior from "@/pages/Behavior";
 
 const basename = import.meta.env.VITE_BASE_PATH;
 
@@ -15,6 +16,10 @@ export default function App() {
     {
       path: "about",
       element: <About />,
+    },
+    {
+      path: "behavior",
+      element: <Behavior />,
     },
   ];
   return (
