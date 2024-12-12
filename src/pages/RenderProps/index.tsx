@@ -1,6 +1,16 @@
 import { useEffect, useState } from "react";
 import { Skeleton, Spin, Card, List, Button, Empty } from 'antd';
 import { ReloadOutlined } from '@ant-design/icons';
+import { Random, mock } from 'mockjs';
+
+Random.extend({
+  userId() {
+    return Random.guid();
+  },
+  userName() {
+    return Random.cname();
+  }
+});
 
 type IUser = {
   userId: string;
@@ -23,10 +33,12 @@ function UserProvider({ children }) {
     setLoading(true);
     new Promise<IUser[]>((resolve) => {
       setTimeout(() => {
-        resolve(Array.from({ length: 9 }).map(() => ({
-          userId: Date.now().toLocaleString(),
-          userName: Date.now().toLocaleString()
-        })));
+        resolve(mock({
+          'list|5': [{
+            userId: '@userId',
+            userName: '@userName'
+          }]
+        }).list);
       }, 2000);
     }).then((list) => {
       setUserList(list);
@@ -43,7 +55,7 @@ function UserProvider({ children }) {
 }
 
 function UserLayout({ children }) {
-  return <div className="flex flex-row justify-between">
+  return <div className="flex flex-row justify-between max-w-40">
     {children}
   </div>
 }
