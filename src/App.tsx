@@ -1,6 +1,9 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { ConfigProvider } from 'antd';
 import Home from "@/pages/Home";
 import About from "@/pages/About";
+import MyHook from "@/pages/MyHook";
+import LearnRef from "@/pages/LearnRef";
 import RenderProps from "@/pages/RenderProps";
 
 const basename = import.meta.env.VITE_BASE_PATH;
@@ -21,8 +24,20 @@ export default function App() {
       path: "render",
       element: <RenderProps />,
     },
+    {
+      path: "ref",
+      element: <LearnRef />,
+    },
+    {
+      path: "hook",
+      element: <MyHook />,
+    },
   ];
-  return (
+  return (<ConfigProvider theme={{
+    token: {
+      borderRadius: 1
+    }
+  }}>
     <BrowserRouter basename={basename}>
       <Routes>
         {children.map((item) => (
@@ -30,5 +45,5 @@ export default function App() {
         ))}
       </Routes>
     </BrowserRouter>
-  );
+  </ConfigProvider>);
 }
